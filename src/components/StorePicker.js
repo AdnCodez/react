@@ -1,9 +1,13 @@
 import React, { createRef } from "react";
+import PropTypes from "prop-types";
 import { getFunName } from '../helpers';
 
 class StorePicker extends React.Component {
     myInput = createRef();
-
+    
+    static propTypes = {
+        history: PropTypes.object
+    };
     handleClick = (event) => {
         // this will stop the form from submitting
         event.preventDefault()
@@ -13,7 +17,6 @@ class StorePicker extends React.Component {
         this.props.history.push(`/store/${storeName}`)
 
     }
-    
     render() {
         return (
             <form className="store-selector">
