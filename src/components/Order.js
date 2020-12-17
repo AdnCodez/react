@@ -37,7 +37,7 @@ class Order extends React.Component {
                         </TransitionGroup>
                         lbs {fish.name}
                         {formatPrice(count * fish.price)}
-                        <button onClick={() => this.props.deleteFromOrder(key)}>&times;</button>
+                        <button className="bg-red-500 px-6 hover:bg-red-600 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200 p-2 ml-6" onClick={() => this.props.deleteFromOrder(key)}> <span className="text-2xl p-2">&times;</span> </button>
                     </span>
                 </li>
             </CSSTransition>
@@ -56,7 +56,7 @@ class Order extends React.Component {
         }, 0);
         return (
             <div className="order-wrap">
-                <h2>Order</h2>
+                <h1>Order</h1>
                 <TransitionGroup component="ul" className="order">
                     {orderIds.map(this.renderOrder)}
                 </TransitionGroup>

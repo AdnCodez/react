@@ -30,7 +30,7 @@ class Fish extends React.Component {
                     <span className="price">{formatPrice(price)}</span>
                 </h3>
                 <p>{desc}</p>
-                <button onClick={()=>{this.props.addToOrder(this.props.index)}} disabled={!isAvailable}>{isAvailable ? "Add To Cart" : "Sold OUT!"}</button>
+                <button className={isAvailable ? "bg-yellow-300 px-6 hover:bg-yellow-400 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200" : "bg-red-400 px-6 pointer-events-none text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200"} onClick={()=>{this.props.addToOrder(this.props.index)}} disabled={!isAvailable}>{isAvailable ? "Add To Cart" : "Sold OUT!"}</button>
             </li>
         )
     }

@@ -51,12 +51,11 @@ class Inventory extends React.Component {
         firebaseApp.auth().signInWithPopup(authProvider).then(this.authHandler);
     }
     logout = async () => {
-        console.log('loggin out!');
         await firebase.auth().signOut();
         this.setState({ uid: null });
     }
     render() {
-        const logout = <button onClick={this.logout}>Log Out!</button>;
+        const logout = <button className="bg-red-500 px-6 mb-3 hover:bg-red-600 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200" onClick={this.logout}>Log Out!</button>;
         // check if someone is logged in
         if (!this.state.uid) {
             return <Login authenticate={this.authenticate}/>
@@ -74,7 +73,6 @@ class Inventory extends React.Component {
         return (
             <div>
                 <h1>Inventory</h1>
-                {logout}
                 {Object.keys(this.props.fishes).map(key => (
                 <EditFishForm 
                     key={key} 
@@ -84,7 +82,9 @@ class Inventory extends React.Component {
                     deleteFish={this.props.deleteFish}/>
                 ))}
                 <AddFishForm addFish={this.props.addFish} />
-                <button onClick={this.props.loadSampleFishes}>Load Sample Fishes</button>
+                <button className="bg-gray-300 px-6 mb-3 hover:bg-gray-400 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200 mr-6" onClick={this.props.loadSampleFishes}>Load Sample Fishes</button>
+                {logout}
+
             </div>
         )
     }

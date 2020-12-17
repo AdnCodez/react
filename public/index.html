@@ -1,17 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Restaurant Menu by AdnCodez</title>
-  </head>
-
-  <body>
-    <input type="checkbox" id="fold" />
-    <label for="fold">Fold</label>
-
-    <div id="main">
-      <!-- This is where our React app will go -->
-    </div>
-  </body>
+	<meta name="author" content="Adnan Habbat">
+    <meta name="description" content="">
+    <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .body-bg {
+            background-size: cover;
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url(https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)
+        }
+    </style>
+</head>
+<!-- flex flex-col h-screen justify-between to make the footer position bottom -->
+<body class="body-bg px-2 md:px-0">
+    <!-- <header class="max-w-lg mx-auto">
+        <a href="#">
+            <h1 class="text-4xl font-bold text-white text-center">Startup</h1>
+        </a>
+    </header> -->
+    <main class="grid content-center"> 
+      <div id="main">
+        <!-- This is where our React app will go -->
+      </div>
+    </main>
+    <footer class="max-w-lg mx-auto flex justify-center text-white my-4">
+        <span class="mx-3">•</span>
+        <a href="https://www.adncodez.com" class="hover:underline">Contact</a>
+        <span class="mx-3">•</span>
+        <!-- <a href="#" class="hover:underline">Privacy</a> -->
+    </footer>
+</body>
 </html>
