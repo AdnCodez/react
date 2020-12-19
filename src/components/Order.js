@@ -55,7 +55,7 @@ class Order extends React.Component {
             return prevTotal;
         }, 0);
         return (
-            <div className="order-wrap">
+            <div className="order-wrap lg:px-6">
                 <h1>Order</h1>
                 <TransitionGroup component="ul" className="order">
                     {orderIds.map(this.renderOrder)}

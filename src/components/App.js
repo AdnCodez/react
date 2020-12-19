@@ -74,8 +74,8 @@ class App extends React.Component {
     }
     render() {
         return (
-            <div className="catch-of-the-day max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
-                <div className="menu p-12 rounded-xl">
+            <div className="catch-of-the-day max-w-lg mx-auto p-md-8 p-2 md:p-12 my-10 rounded-lg shadow-2xl">
+                <div className="menu p-12 lg:rounded-l-2xl">
                     <Header tagline="Fresh SeaFood Market" storeName={this.props.match}/>
                     <ul className="fishes">
                         {Object.keys(this.state.fishes).map(key => <Fish key={key} index={key} data={this.state.fishes[key]} addToOrder={this.addToOrder}/>)}

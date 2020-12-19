@@ -5,8 +5,10 @@ const Login = (props) => (
     <nav className="login text-center">
         <h1>Inventory Login</h1>
         <p className="mb-6">Sign in to manage your store's inventory</p>
-        <button className="bg-yellow-300 px-6 hover:bg-yellow-400 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200 mr-6" onClick={()=> props.authenticate('Github')}>Log In With Github</button>
-        <button className="bg-yellow-300 px-6 hover:bg-yellow-400 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200" onClick={()=> props.authenticate('Google')}>Log In With Google</button>
+        <div className="md:space-x-10">
+            <button className="bg-yellow-300 px-6 hover:bg-yellow-400 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200 mb-6" onClick={()=> props.authenticate('Github')}>Log In With Github</button>
+            <button className="bg-yellow-300 px-6 hover:bg-yellow-400 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200" onClick={()=> props.authenticate('Google')}>Log In With Google</button>
+        </div>
     </nav>
 ); 
 

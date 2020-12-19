@@ -55,7 +55,7 @@ class Inventory extends React.Component {
         this.setState({ uid: null });
     }
     render() {
-        const logout = <button className="bg-red-500 px-6 mb-3 hover:bg-red-600 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200" onClick={this.logout}>Log Out!</button>;
+        const logout = <button className="bg-red-500 px-6 mb-3 hover:bg-red-600 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200 w-3/6 m-auto" onClick={this.logout}>Log Out!</button>;
         // check if someone is logged in
         if (!this.state.uid) {
             return <Login authenticate={this.authenticate}/>
@@ -71,7 +71,7 @@ class Inventory extends React.Component {
         }
         // render the inventory the have to be the owner
         return (
-            <div>
+            <div className="lg:rounded-r-2xl lg:pr-6">
                 <h1>Inventory</h1>
                 {Object.keys(this.props.fishes).map(key => (
                 <EditFishForm 
@@ -82,8 +82,10 @@ class Inventory extends React.Component {
                     deleteFish={this.props.deleteFish}/>
                 ))}
                 <AddFishForm addFish={this.props.addFish} />
-                <button className="bg-gray-300 px-6 mb-3 hover:bg-gray-400 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200 mr-6" onClick={this.props.loadSampleFishes}>Load Sample Fishes</button>
-                {logout}
+                <div className="text-center grid content-center">
+                    <button className="bg-gray-300 px-6 mb-3 hover:bg-gray-400 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200" onClick={this.props.loadSampleFishes}>Load Sample Fishes</button>
+                    {logout}
+                </div>
 
             </div>
         )
