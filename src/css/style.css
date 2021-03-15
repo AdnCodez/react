@@ -426,16 +426,16 @@ ul.order li span.count span {
 .order-title {
   text-align: center;
 }
-.fish-edit {
+.meal-edit {
   margin-bottom: 20px;
   border: 2px solid #000;
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
 }
-.fish-edit input,
-.fish-edit textarea,
-.fish-edit select {
+.meal-edit input,
+.meal-edit textarea,
+.meal-edit select {
   width: 33.33%;
   padding: 10px;
   line-height: 1;
@@ -449,30 +449,30 @@ ul.order li span.count span {
   border-radius: 0;
   background: #fff;
 }
-.fish-edit input:focus,
-.fish-edit textarea:focus,
-.fish-edit select:focus {
+.meal-edit input:focus,
+.meal-edit textarea:focus,
+.meal-edit select:focus {
   outline: 0;
   background: #fef2de;
 }
-.fish-edit textarea {
+.meal-edit textarea {
   width: 100%;
 }
-.fish-edit input:last-of-type {
+.meal-edit input:last-of-type {
   width: 100%;
 }
-.fish-edit button {
+.meal-edit button {
   width: 100%;
   border: 0;
 }
-.list-of-fish {
+.list-of-meal {
   border-top: 2px solid #000;
   border-bottom: 1px solid #000;
   padding-top: 5px;
   margin-top: 2rem;
   transform: translateZ(0);
 }
-.menu-fish {
+.menu-meal {
   border-bottom: 2px solid #000;
   /* border-top: 1px solid #000; */
   padding-bottom: 2rem;
@@ -481,21 +481,21 @@ ul.order li span.count span {
   clear: both;
   overflow: hidden;
 }
-.menu-fish p {
+.menu-meal p {
   margin: 0;
   font-size: 1.8rem;
 }
-.menu-fish .fish-name {
+.menu-meal .meal-name {
   margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.menu-fish .price {
+.menu-meal .price {
   font-size: 1.4rem;
   justify-content: flex-end;
 }
-.menu-fish img {
+.menu-meal img {
   float: left;
   width: 150px;
   margin-right: 1rem;

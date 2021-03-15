@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import Header from './Header'
 import Order from './Order'
 import Inventory from './Inventory'
-import Fish from './Fish'
-import sampleFishes from '../sample-fishes'
+import Meal from './Meal'
+import sampleMeals from '../sample-meals'
 import base from '../base'
 class App extends React.Component {
     state = {
-        fishes: {},
+        meals: {},
         order: {}
     }
     static propTypes = {
@@ -21,9 +21,9 @@ class App extends React.Component {
         if (localStorageRef) {
             this.setState({order: JSON.parse(localStorageRef)})
         }
-        this.ref = base.syncState(`${params.storeId}/fishes`, {
+        this.ref = base.syncState(`${params.storeId}/meals`, {
             context: this,
-            state: 'fishes'
+            state: 'meals'
         })
     }
     componentDidUpdate() {
@@ -32,32 +32,32 @@ class App extends React.Component {
     componentWillUnmount() {
         base.removeBinding(this.ref);
     }
-    addFish = (fish) => {
+    addMeal = (meal) => {
         // create a copy of state
-        const fishes = { ...this.state.fishes };
+        const meals = { ...this.state.meals };
 
-        fishes[`fish${Date.now()}`] = fish;
+        meals[`meal${Date.now()}`] = meal;
 
-        this.setState({ fishes });
+        this.setState({ meals });
     }
-    updateFish = (key, updatedFish) => {
+    updateMeal = (key, updatedFish) => {
         // copy the current state
-        const fishes = {...this.state.fishes};
+        const meals = {...this.state.meals};
         // update the copied state
-        fishes[key] = updatedFish;
+        meals[key] = updatedFish;
         // set that to state
-        this.setState({ fishes });
+        this.setState({ meals });
     }
-    deleteFish = (key) => {
+    deleteMeal = (key) => {
         // copy state
-        const fishes = {...this.state.fishes};
+        const meals = {...this.state.meals};
         // remove item from state, update state (need to be set to null to get removed from firebase)
-        fishes[key] = null;
+        meals[key] = null;
         // update state
-        this.setState({fishes});
+        this.setState({meals});
     } 
-    loadSampleFishes = () => {
-        this.setState({fishes:sampleFishes})
+    loadSampleMeals = () => {
+        this.setState({meals:sampleMeals})
     }
     addToOrder = key => {
         // copy of state
@@ -76,13 +76,13 @@ class App extends React.Component {
         return (
             <div className="catch-of-the-day max-w-lg mx-auto p-md-8 p-2 md:p-12 my-10 rounded-lg shadow-2xl">
                 <div className="menu p-12 lg:rounded-l-2xl">
-                    <Header tagline="Fresh SeaFood Market" storeName={this.props.match}/>
-                    <ul className="fishes">
-                        {Object.keys(this.state.fishes).map(key => <Fish key={key} index={key} data={this.state.fishes[key]} addToOrder={this.addToOrder}/>)}
+                    <Header tagline="Fresh Food Market" storeName={this.props.match}/>
+                    <ul className="meals">
+                        {Object.keys(this.state.meals).map(key => <Meal key={key} index={key} data={this.state.meals[key]} addToOrder={this.addToOrder}/>)}
                     </ul>
                 </div>
-                <Order fishes={this.state.fishes} deleteFromOrder={this.deleteFromOrder} order={this.state.order}/>
-                <Inventory addFish={this.addFish} updateFish={this.updateFish} deleteFish={this.deleteFish} loadSampleFishes={this.loadSampleFishes} fishes={this.state.fishes} storeId={this.props.match.params.storeId}/>
+                <Order meals={this.state.meals} deleteFromOrder={this.deleteFromOrder} order={this.state.order}/>
+                <Inventory addMeal={this.addMeal} updateMeal={this.updateMeal} deleteMeal={this.deleteMeal} loadSampleMeals={this.loadSampleMeals} meals={this.state.meals} storeId={this.props.match.params.storeId}/>
             </div>
         )
     }

@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import firebase from 'firebase';
-import AddFishForm from './AddFishForm';
-import EditFishForm from './EditFishForm';
+import AddMealForm from './AddMealForm';
+import EditMealForm from './EditMealForm';
 import Login from './Login';
 import base, { firebaseApp } from '../base';
 class Inventory extends React.Component {
     static propTypes = {
-        fishes: PropTypes.object,
-        updateFish: PropTypes.func,
-        deleteFish: PropTypes.func,
-        loadSampleFishes: PropTypes.func,
-        addFish: PropTypes.func
+        meals: PropTypes.object,
+        updateMeal: PropTypes.func,
+        deleteMeal: PropTypes.func,
+        loadSampleMeals: PropTypes.func,
+        addMeal: PropTypes.func
     };
 
     state = {
@@ -55,7 +55,7 @@ class Inventory extends React.Component {
         this.setState({ uid: null });
     }
     render() {
-        const logout = <button className="bg-red-500 px-6 mb-3 hover:bg-red-600 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200 w-3/6 m-auto" onClick={this.logout}>Log Out!</button>;
+        const logout = <button className="bg-red-500 px-6 mb-3 hover:bg-red-600 text-white py-2 rounded shadow-lg hover:shadow-xl transition duration-200 w-3/6 m-auto" onClick={this.logout}>Log Out!</button>;
         // check if someone is logged in
         if (!this.state.uid) {
             return <Login authenticate={this.authenticate}/>
@@ -73,17 +73,17 @@ class Inventory extends React.Component {
         return (
             <div className="lg:rounded-r-2xl lg:pr-6">
                 <h1>Inventory</h1>
-                {Object.keys(this.props.fishes).map(key => (
-                <EditFishForm 
+                {Object.keys(this.props.meals).map(key => (
+                <EditMealForm 
                     key={key} 
                     index={key} 
-                    fish={this.props.fishes[key]} 
-                    updateFish={this.props.updateFish}
-                    deleteFish={this.props.deleteFish}/>
+                    meal={this.props.meals[key]} 
+                    updateMeal={this.props.updateMeal}
+                    deleteMeal={this.props.deleteMeal}/>
                 ))}
-                <AddFishForm addFish={this.props.addFish} />
+                <AddMealForm addMeal={this.props.addMeal} />
                 <div className="text-center grid content-center">
-                    <button className="bg-gray-300 px-6 mb-3 hover:bg-gray-400 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200" onClick={this.props.loadSampleFishes}>Load Sample Fishes</button>
+                    <button className="bg-gray-300 px-6 mb-3 hover:bg-gray-400 text-white py-2 rounded shadow-lg hover:shadow-xl transition duration-200" onClick={this.props.loadSampleMeals}>Load Sample Fishes</button>
                     {logout}
                 </div>
 

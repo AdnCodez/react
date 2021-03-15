@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-class EditFishForm extends React.Component {
+class EditMealForm extends React.Component {
     static propTypes = {
-        fish: PropTypes.shape({
+        meal: PropTypes.shape({
           image: PropTypes.string,
           name: PropTypes.string,
           desc: PropTypes.string,
@@ -11,53 +11,53 @@ class EditFishForm extends React.Component {
           price: PropTypes.number
         }),
         index: PropTypes.string,
-        updateFish: PropTypes.func
+        updateMeal: PropTypes.func
     };
     handleChange = (event) => {
-        // update the fish data
-        // first copy the current fish
+        // update the meal data
+        // first copy the current meal
         const updatedFish = {
-            ...this.props.fish,
+            ...this.props.meal,
             [event.currentTarget.name]: event.currentTarget.value,
         }
-        this.props.updateFish(this.props.index, updatedFish);
+        this.props.updateMeal(this.props.index, updatedFish);
     }
     render() { 
         return ( 
-            <div className="fish-edit">
+            <div className="meal-edit">
                 <input 
                     type="text" 
                     name="name" 
-                    value={this.props.fish.name} 
+                    value={this.props.meal.name} 
                     onChange={this.handleChange}/>
                 <input 
                     type="text" 
                     name="price" 
-                    value={this.props.fish.price} 
+                    value={this.props.meal.price} 
                     onChange={this.handleChange}/>
                 <select 
                     type="text" 
                     name="status" 
-                    value={this.props.fish.status} 
+                    value={this.props.meal.status} 
                     onChange={this.handleChange}>
-                    <option value="available">Fresh!</option>
+                    <option value="available">Available</option>
                     <option value="unavailable">Sold Out!</option>
                 </select>
                 <textarea 
                     name="desc" 
-                    value={this.props.fish.desc} 
+                    value={this.props.meal.desc} 
                     onChange={this.handleChange}></textarea>
                 <input 
                     type="text" 
                     name="image" 
-                    value={this.props.fish.image} 
+                    value={this.props.meal.image} 
                     onChange={this.handleChange}/>
-                <button onClick={() => this.props.deleteFish(this.props.index)}>
-                    Remove Fish
+                <button onClick={() => this.props.deleteMeal(this.props.index)}>
+                    Remove Meal
                 </button>
             </div>
         );
     }
 }
  
-export default EditFishForm; 
+export default EditMealForm; 
